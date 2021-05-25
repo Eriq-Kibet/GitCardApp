@@ -7,11 +7,17 @@ const Header = () => {
     lineHeight: "1em",
    
   }
+  const h1Style={
+     fontSize: "4rem", 
+     fontWeight: "600", 
+      lineHeight: "1em",
+      color: "#ececec",
+      textAlign: "center" 
+  }
   
   return (
     <header style={headerStyle}>
-      <h1 style={{ fontSize: "4rem", fontWeight: "600", 
-      lineHeight: "1em", color: "#ececec",textAlign: "center" }}>
+      <h1 style={h1Style}>
         Git Card App
         </h1>
     </header>

@@ -1,11 +1,18 @@
-import { FaArrowUp} from 'react-icons/fa'
+import { FaArrowUp } from 'react-icons/fa'
+
+
+
+const FaArrowUpStyle = {
+    color: "darkcyan",
+    fontSize: "20px"
+}
 function Footer() {
-    return(
+    return (
         <div>
             <form className="footerForm">
                 <button  >
-                    <FaArrowUp style={{ color: "darkcyan", fontSize: "20px",}}/>
-                    </button>
+                    <FaArrowUp style={ FaArrowUpStyle} />
+                </button>
             </form>
         </div>
     );

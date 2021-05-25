@@ -2,6 +2,16 @@ import React from 'react';
 import axios from 'axios';
 import { FaPlusCircle } from "react-icons/fa";
 
+const inputStyle = {
+  backgroundColor: "#ececec",
+   fontSize: "1rm",
+    width: "30%"
+};
+const FaPlusCircleStyle = {
+   color: "darkcyan", 
+   fontSize: "20px",
+    marginTop: "2px" 
+};
 
 class Form extends React.Component {
   state = { userName: '' };
@@ -20,13 +30,13 @@ class Form extends React.Component {
     
     this.setState({ userName: '' });
   };
-  
+
   render() {
     return (
 
       <form className="mainForm" onSubmit={this.handleSubmit}>
 
-        <input style={{ backgroundColor: "#ececec", fontSize: "1rm", width: "30%", }}
+        <input style={inputStyle}
           onSubmit={this.handleSubmit}
           type="text"
           value={this.state.userName}
@@ -36,7 +46,7 @@ class Form extends React.Component {
         />
 
         <button className="inputSubmit" >
-          <FaPlusCircle style={{ color: "darkcyan", fontSize: "20px", marginTop: "2px" }} />
+          <FaPlusCircle style={FaPlusCircleStyle}/>
         </button>
 
       </form>

@@ -19,13 +19,14 @@ class Card extends React.Component {
 	render() {
   	const profile = this.props;
   	return (
-    	<div className="github-profile" style={{color: "#003E3E", fontSize: "20px"}} >
+    	<div className="github-profile" 
+      style={{color: "#003E3E", fontSize: "20px"}} >
     	  <img src={profile.avatar_url} alt="github Profile" />
         <div className="info">
           <div className="name">{profile.name}</div>
-          <div className="company">{profile.company}</div>
-          {/* <div className="email" >{profile.email}</div> */}
-          
+          <div className="company">Company: {profile.company}</div>
+          <div className="following" >Following: {profile.following}</div>
+          <div className="followers" > Followers: {profile.followers}</div>
         </div>
         <button className="deleteButton"
          onClick={()=> this.props.deleteProfile(profile.id)} 

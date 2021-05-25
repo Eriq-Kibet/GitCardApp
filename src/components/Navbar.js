@@ -1,32 +1,45 @@
-import React, { useState } from 'react';
-import { FaHome } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaInfo } from "react-icons/fa";
+import React from 'react'
+import { useState } from 'react'
+import * as FaIcons from 'react-icons/fa'
+import * as AiIcons from 'react-icons/ai'
+import { Link } from 'react-router-dom'
+import {SidebarData} from './SidebarData'
 
+function Navbar() {
+  const [sidebar, setSidebar] = useState(false)
 
-function NavigationBar() {
-  // function changeBackground(e) {
-  //   e.target.style.background = 'red';
-  // }
+  const showSidebar = () => setSidebar(!sidebar)
+
   return (
-    <form>
-      <div className="navigation">
-        <button style={{ marginRight: "80px" }} >
-          <FaHome style={{ color: "darkcyan", fontSize: "70px" }} />
-        
-        </button>
-
-        <button>
-          <FaInfo style={{ color: "darkcyan", fontSize: "70px"}} />
-        </button>
-
-
-        <button style={{ marginLeft: "80px" }}>
-          <FaGithub style={{ color: "darkcyan", fontSize: "70px", }}
-          />
-        </button>
+    <>
+      <div className="navbar">
+        <Link to="#" className="menu-bars">
+          <FaIcons.FaBars onClick={showSidebar} />
+        </Link>
       </div>
-    </form>
+      <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+        <ul className="nav-menu-items">
+          <li className="navbar-toggle">
+            <Link to="#" className="menu-bars">
+              <AiIcons.AiOutlineClose />
+            </Link>
+          </li>
+            {SidebarData.map((item, index)=> {
+              return(
+                <li key={index} className={item.cName}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>
+                      {item.title}
+                    </span>
+                  </Link>
+                </li>
+              )
+            })}
+        </ul>
+      </nav>
+    </>
   )
 }
-export default NavigationBar;
+
+export default Navbar
